@@ -13,6 +13,9 @@ var scores, roundScore, activePlayer, gamePlaying;
 
 init();
 
+//challenge1 variable. glabal scope this variable so that the value of it remains after player clicks again
+var lastDice;
+
 
 
 
@@ -27,17 +30,23 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     diceDOM.style.display = 'block';
     diceDOM.src = 'dice-' + dice + '.png';
 
+
     //3. Update the round score IF the rolled number is not a 1
-    if (dice !== 1) {
+    if(dice === 6 && lastDice === 6) { //challenge 1 code begin
+        //player loses score
+        scores[activePlayer] = 0;
+        document.querySelector('#score-' + activePlayer).textContent = '0';
+        nextPlayer(); //challenge 1 code end
+    } else if (dice !== 1) {
         //add score
         roundScore += dice 
         //another way to write this is roundScore = roundScore + dice
         document.querySelector('#current-' + activePlayer).textContent = roundScore;
         } else {
-        //next player
-        
-        nextPlayer();
+        //next player        
+        nextPlayer();        
         }
+        lastDice = dice;
 
     }
 
@@ -110,3 +119,7 @@ function init() {
 //document.querySelector('#current-' + activePlayer).textContent = dice;
 //document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
 //var x = document.querySelector('#score-0').textContent;
+
+
+
+
