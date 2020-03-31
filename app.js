@@ -23,7 +23,7 @@ var lastDice;
 document.querySelector('.btn-roll').addEventListener('click', function() {
     if(gamePlaying) {
     //1. random number
-    dice = Math.floor(Math.random() * 6) + 1;
+    dice = Math.floor(Math.random() * 6) + 1; 
 
     //2. display the result
     var diceDOM = document.querySelector('.dice')
