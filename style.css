@@ -152,3 +152,18 @@ i {
 
 .winner { background-color: #f7f7f7; }
 .winner .player-name { font-weight: 300; color: #EB4D4D; }
+
+
+/* Styles for challenge 2 input field */
+
+.winScore {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 520px;
+    padding: .75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #555;
+    text-align: center;
+}
